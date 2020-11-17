@@ -32,6 +32,18 @@ contract BdcCertificateManager is
       require (msg.sender == manager, "ERROR_NOT_OWNER");
       _;
     }
+
+    event CreateCertificate (
+        address   indexed owner,
+        uint256   _bID,
+        uint256    _cID,
+        string   _certificateHash
+    );
+
+    event DeleteAllCertificate (
+        address   indexed owner,
+        uint256   _bID
+    );
     
     function initialize(
         string memory name,
@@ -81,6 +93,8 @@ contract BdcCertificateManager is
         }
 
         certificateList[_bID].push(_cID);
+
+        emit CreateCertificate(msg.sender, _bID, _cID, _certificateHash);
         
         return (_bID, _cID);
     }
@@ -90,6 +104,8 @@ contract BdcCertificateManager is
             delete certificates[_bID][certificateList[_bID][i]];
         }
         delete certificateList[_bID];
+
+        emit DeleteAllCertificate(msg.sender, _bID);
     }
     
     function certificateInfo(uint256 _bID, uint256 _cID) public view returns(uint256, uint256, string memory, string memory, string memory, string memory, bool) {
