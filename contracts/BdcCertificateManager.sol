@@ -36,7 +36,7 @@ contract BdcCertificateManager is
     event CreateCertificate (
         address   indexed owner,
         uint256   _bID,
-        uint256    _cID,
+        uint256   _cID,
         string   _certificateHash
     );
 
