@@ -2,10 +2,7 @@ pragma solidity ^0.5.0;
 
 import "../node_modules/@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/ERC20Detailed.sol";
 import "../node_modules/@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/ERC20Mintable.sol";
-test
-test
-test
-test
+
 contract BdcBPT is
    ERC20Detailed, 
    ERC20Mintable
